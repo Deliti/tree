@@ -2,35 +2,203 @@
 @import './animate.scss';
 @import './myanimate.scss';
 .page-wrap {
-  .tree-wrap {
+  width: 100%;
+  position: relative;
+  .bg-wrap {
+    position: absolute;
+    left: 0;top: 0;
     width: 100%;
-    height: 30rem;
-    position: relative;
-    .tree {
-      width: 40%;
-      height: 15rem;
+    .day-bg {
+      width: 100%;
+      height: 40rem;
+      // @include backImg('../images/loginbg.png');
+      background: skyblue;
       position: absolute;
-      left: 30%;bottom: 2rem;
-      background: red;
+      left: 0;top: 0;
     }
-    .sprinkler-box {
-      display: none;
+    .left-stone {
+      width: 23.6rem;
+      height: 8.85rem;
+      background: grey;
       position: absolute;
-      right: 35%;top: 10rem;
-      animation: showsprinkler 1s forwards;
-      .sprinkler {
-        width: 5rem;
-        height: 5rem;
-        background: gold;
+      left: 0;top: 32.4rem;
+    }
+    .right-stone {
+      width: 4.83rem;
+      height: 11.8rem;
+      background: coral;
+      position: absolute;
+      right: 7rem;top: 32.4rem;
+    }
+    .grassland {
+      width: 100%;
+      height: 28rem;
+      background: greenyellow;
+      position: absolute;
+      left: 0;top: 38.7rem;
+    }
+    .tree {
+      background: green;
+      position: absolute;
+      left: 50%;top: 45.4rem;
+      transform: translateX(-50%);
+    }
+    .tree-1 {
+      width: 5rem;
+      height: 7.6rem;
+      background: green;
+    }
+    .tree-2 {
+      width: 5rem;
+      height: 7.6rem;
+      background: green;
+    }
+    .tree-3 {
+      width: 5rem;
+      height: 7.6rem;
+      background: green;
+    }
+  }
+  .page-content {
+    position: relative;
+    padding-top: 3rem;
+    .top-wrap {
+      width: 100%;
+      @extend .flex-box;
+      margin-bottom: 53rem;
+      .top-box {
+        height: 3.8rem;
+        padding: 0 .6rem;
+        background: rgba(255,255,255,0.80);
+        @extend .flex-box;
+        img {
+          width: 3rem;
+          height: 3rem;
+          margin-right: .3rem;
+        }
+        .sign-icon {
+          margin-right: 1rem;
+        }
+        label {
+          font-size: 1.4rem;
+          color: #5891E8;
+        }
       }
-      .water {
-        display: none;
-        animation: watering 1s linear 3 1s;
-        width: 3rem;
-        height: 5rem;
-        background: green;
+      .certificate {
+        border-radius: 0 1.9rem 1.9rem 0;
+      }
+      .signin {
+        border-radius: 1.9rem 0 0 1.9rem;
+      }
+    }
+    .tool-wrap {
+      position: absolute;
+      left: 0;top: 0;
+      width: 100%;
+      .handle-box {
         position: absolute;
-        left: -3.5rem;top: 0;
+        right: 2.8rem;top: 0;
+        width: 4.8rem;
+        img {
+          width: 4.8rem;
+          height: 7.3rem;
+          margin-bottom: .5rem;
+        }
+      }
+      .group1 {
+        top: 18rem;
+      }
+      .group2 {
+        top: 27rem;
+      }
+      .group3 {
+        top: 35.7rem;
+      }
+      .process-box {
+        width: 1.6rem;
+        height: 26rem;
+        position: absolute;
+        right: .4rem;top: 17rem;
+        background-image: linear-gradient(90deg, #ECEEED 0%, #878785 100%);
+        border: 0 solid #35535F;
+        border-radius: 5rem;
+        overflow: hidden;
+        .process-in {
+          width: 1.14rem;
+          height: 25.2rem;
+          position: absolute;
+          left: .23rem;bottom: 1rem;
+          background-image: linear-gradient(-180deg, #E0DC3A 0%, #82C321 40%, #4CB047 58%, #2D9D81 78%, #0761C0 100%);
+          border: 1px solid #000000;
+        }
+      }
+      .process-score {
+        width: 1.8rem;
+        text-align: center;
+        font-size: 1.1rem;
+        color: #ffffff;
+        position: absolute;
+        right: .4rem;top: 43.8rem;
+      }
+    }
+    .rank-wrap {
+      width: 100%;
+      background: #ffffff;
+      // @include backImg('../images/loginbg.png');
+      .rank-title {
+        height: 7rem;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 3.8rem 0 0 1.7rem;
+        border-bottom: 1px solid #E7E7E7;
+      }
+      .rank-container {
+        .rank-item {
+          width: 100%;
+          height: 8.6rem;
+          @extend .flex-box;
+          box-sizing: border-box;
+          border: 1px solid #E7E7E7;
+          padding: 0 1.7rem 0 3.8rem;
+          .medal-icon {
+            width: 2.6rem;
+            height: 5.1rem;
+            margin-right: 1.34rem;
+          }
+          .medal1 {
+            @include backImg('../images/medal1.png');
+          }
+          .medal2 {
+            @include backImg('../images/medal2.png');
+          }
+          .medal3 {
+            @include backImg('../images/medal3.png');
+          }
+          >div {
+            flex: 1;
+          }
+          .username {
+            font-size: 1.6rem;
+            color: #333333;
+            margin-bottom: .5rem;
+          }
+          .userdesc {
+            font-size: 1.4rem;
+            color: #999999;
+          }
+          .userscore {
+            font-size: 1.4rem;
+            color: #333333;
+          }
+        }
+      }
+      .get-more {
+        width: 100%;
+        height: 4.5rem;
+        font-size: 1.4rem;
+        text-align: center;
+        line-height: 4.5rem;
+        color: #666666;
       }
     }
   }

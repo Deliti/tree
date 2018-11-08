@@ -1,0 +1,76 @@
+@import './reset.scss';
+.page-wrap {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 4.3rem 0 0;
+  @include backImg('../images/loginbg.png');
+  background-size: 100% 22.4rem;
+  background-position: 0 bottom;
+  .page-title {
+    font-size: 2rem;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 11.2rem;
+  }
+  .input-wrap {
+    width: 26rem;
+    margin: 0 auto 2.5rem;
+    .input-box {
+      width: 100%;
+      height: 2.2rem;
+      @extend .flex-box;
+      padding-bottom: .6rem;
+      border-bottom: 1px solid #E7E7E7;
+      margin-bottom: 3.5rem;
+      .input-icon {
+        width: 1.4rem;
+        height: 1.4rem;
+        margin-right: .9rem;
+      }
+      .user-icon {
+        @include backImg('../images/user.png');
+      }
+      .verify-icon {
+        height: 1.6rem;
+        @include backImg('../images/verifycode.png');
+      }
+      .input {
+        flex: 1;
+        height: 100%;
+      }
+      .check-icon {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin: 0 1rem;
+        @include backImg('../images/close.png');
+      }
+      .code-box {
+        // width: 9.3rem;
+        height: 100%;
+        box-sizing: border-box;
+        border-left: 1px solid #E7E7E7;
+        padding-left: 1.25rem;
+        font-size: 1.3rem;
+        line-height: 2.2rem;
+        color: #666666;
+      }
+    }
+    .verify {
+      .input {
+        width: 14.4rem;
+      }
+    }
+  }
+  .submit-btn {
+    width: 24.2rem;
+    height: 4.4rem;
+    margin: 0 auto;
+    background: #4EC1F7;
+    border-radius: 10rem;
+    text-align: center;
+    line-height: 4.4rem;
+    font-size: #ffffff;
+    font-size: 1.6rem;
+  }
+}

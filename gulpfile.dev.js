@@ -27,7 +27,7 @@ var targetProxy = proxyMiddleware(['/api'], {
 });
 
 var browserS = browserSync.create("coupon");
-const reload = browserSync.get('coupon').reload;
+const reload = browserSync.get("coupon").reload;
 
 gulp.task('brSync', function() {
   browserS.init({
