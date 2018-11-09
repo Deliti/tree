@@ -45,7 +45,6 @@ gulp.task('brSync', function() {
 
 gulp.task("css", function () {
   gulp.src([
-      "./src/sass/reset.scss",
       "./src/sass/*.scss"
     ])
     .pipe(sass({"sourcemap":true}))

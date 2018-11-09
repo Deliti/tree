@@ -8,55 +8,188 @@
     position: absolute;
     left: 0;top: 0;
     width: 100%;
-    .day-bg {
+    .sky-bg {
       width: 100%;
-      height: 40rem;
-      // @include backImg('../images/loginbg.png');
-      background: skyblue;
+      height: 54rem;
       position: absolute;
       left: 0;top: 0;
+      .sun {
+        width: 25.5rem;
+        height: 23.3rem;
+        position: absolute;
+        left: 0;top: 1.8rem;
+        @include backImg('../images/sun.png');
+      }
+      .bird {
+        width: 7.5rem;
+        height: 5.3rem;
+        position: absolute;
+        right: 12rem;top: 16rem;
+        @include backImg('../images/bird.png');
+      }
+      .moon {
+        width: 8.7rem;
+        height: 6.5rem;
+        position: absolute;
+        right: 3rem;top: 8rem;
+        @include backImg('../images/moon.png');
+      }
+      .star-1 {
+        width: 1.9rem;
+        height: 1.8rem;
+        position: absolute;
+        left: 5rem;top: 13rem;
+        @include backImg('../images/star1.png');
+      }
+      .star-2 {
+        width: 1.4rem;
+        height: 1.3rem;
+        position: absolute;
+        right: 1.4rem;top: 12rem;
+        @include backImg('../images/star2.png');
+      }
     }
-    .left-stone {
-      width: 23.6rem;
-      height: 8.85rem;
-      background: grey;
-      position: absolute;
-      left: 0;top: 32.4rem;
+    .day-bg {
+      @include backImg('../images/day.png');
     }
-    .right-stone {
-      width: 4.83rem;
-      height: 11.8rem;
-      background: coral;
-      position: absolute;
-      right: 7rem;top: 32.4rem;
+    .night-bg {
+      @include backImg('../images/night.png');
     }
     .grassland {
       width: 100%;
-      height: 28rem;
-      background: greenyellow;
+      height: 38.5rem;
       position: absolute;
-      left: 0;top: 38.7rem;
+      left: 0;top: 27.4rem;
+    }
+    .day-step-1 {
+      @include backImg('../images/grassland-day-1.png');
+    }
+    .day-step-2 {
+      @include backImg('../images/grassland-day-2.png');
+    }
+    .day-step-3 {
+      @include backImg('../images/grassland-day-3.png');
+    }
+    .night-grass {
+      @include backImg('../images/grassland-night.png');
     }
     .tree {
-      background: green;
       position: absolute;
-      left: 50%;top: 45.4rem;
+      left: 50%;
       transform: translateX(-50%);
+      .sprinkler-box {
+        display: none;
+        position: absolute;
+        right: -100%;top: -6rem;
+        transform: rotate(15deg);
+        animation: showsprinkler 1s forwards;
+        .sprinkler {
+          width: 8.7rem;
+          height: 5.8rem;
+          @include backImg('../images/sprinkler.png');
+        }
+        .water {
+          display: none;
+          animation: watering 1s linear 3 1s;
+          width: 3rem;
+          height: 5rem;
+          background: green;
+          position: absolute;
+          left: -3.5rem;top: 0;
+        }
+      }
+      .scratching-box {
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        right: 0;bottom: 0;
+        .hand {
+          width: 7.3rem;
+          height: 5.6rem;
+          position: absolute;
+          right: 10%;bottom: 2rem;
+          @include backImg('../images/hand.png');
+          animation: showhand 2s forwards;
+        }
+        .pest {
+          display: none;
+          animation: catchpest 1.5s linear 1 0.5s forwards;
+          width: 1rem;
+          height: 3rem;
+          background: red;
+          position: absolute;
+          left: 45%;bottom: 1rem;
+        }
+      }
     }
     .tree-1 {
-      width: 5rem;
-      height: 7.6rem;
-      background: green;
+      width: 5.5rem;
+      height: 6.2rem;
+      top: 39.7rem;
+      @include backImg('../images/tree-1.png');
+      .scratching-box {
+        .hand {
+          right: 10%;
+        }
+        .pest {
+          left: 45%;
+        }
+      }
     }
     .tree-2 {
-      width: 5rem;
-      height: 7.6rem;
-      background: green;
+      width: 12.2rem;
+      height: 12.9rem;
+      top: 33.7rem;
+      @include backImg('../images/tree-2.png');
+      .sprinkler-box {
+        right: -30%;top: -6rem;
+      }
+      .scratching-box {
+        .hand {
+          right: 10%;
+        }
+        .pest {
+          left: 50%;
+        }
+      }
     }
     .tree-3 {
-      width: 5rem;
-      height: 7.6rem;
-      background: green;
+      width: 10.9rem;
+      height: 15rem;
+      top: 30.2rem;
+      @include backImg('../images/tree-3.png');
+      .sprinkler-box {
+        right: -30%;top: -6rem;
+      }
+      .scratching-box {
+        .hand {
+          right: 10%;
+        }
+        .pest {
+          left: 40%;
+        }
+      }
+    }
+    .tree-4 {
+      width: 18rem;
+      height: 18.2rem;
+      top: 27.2rem;
+      @include backImg('../images/tree-4.png');
+      .sprinkler-box {
+        right: -30%;top: -6rem;
+      }
+      .scratching-box {
+        .hand {
+          right: 15%;
+        }
+        .pest {
+          left: 47%;
+        }
+      }
+    }
+    .mypulse {
+      animation: bigtree 1s forwards;
     }
   }
   .page-content {
@@ -123,13 +256,35 @@
         border: 0 solid #35535F;
         border-radius: 5rem;
         overflow: hidden;
+        &::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: .4rem;
+          left: 0;top: 0;
+          z-index: 1;
+          background-image: linear-gradient(90deg, #ECEEED 0%, #878785 100%);
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: .4rem;
+          left: 0;bottom: 0;
+          z-index: 1;
+          background-image: linear-gradient(90deg, #ECEEED 0%, #878785 100%);
+        }
         .process-in {
           width: 1.14rem;
-          height: 25.2rem;
+          height: 26rem;
           position: absolute;
-          left: .23rem;bottom: 1rem;
+          left: .23rem;top: 100%;
           background-image: linear-gradient(-180deg, #E0DC3A 0%, #82C321 40%, #4CB047 58%, #2D9D81 78%, #0761C0 100%);
           border: 1px solid #000000;
+          border-radius: 5rem;
+        }
+        .light {
+          animation: processlight 1s infinite;
         }
       }
       .process-score {
@@ -143,11 +298,12 @@
     }
     .rank-wrap {
       width: 100%;
-      background: #ffffff;
-      // @include backImg('../images/loginbg.png');
+      @include backImg('../images/rank-bg.png');
       .rank-title {
         height: 7rem;
         width: 100%;
+        font-size: 2rem;
+        color: #FD7A22;
         box-sizing: border-box;
         padding: 3.8rem 0 0 1.7rem;
         border-bottom: 1px solid #E7E7E7;
@@ -201,5 +357,155 @@
         color: #666666;
       }
     }
+  }
+}
+.hiding-cover {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  left: 0;top: 0;
+  right: 0;bottom: 0;
+  z-index: 9999;
+}
+.plant-wrap {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  left: 0;top: 0;
+  right: 0;bottom: 0;
+  z-index: 9999;
+  .cover {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+  }
+  .plant-cert {
+    position: absolute;
+    left: 50%;top: 50%;
+    transform: translate(-50%, -60%);
+    width: 15.7rem;
+    padding: 1rem;
+    .cert-box {
+      width: 100%;
+      position: relative;
+      img {
+        display: block;
+        width: 100%;
+        height: 13.8rem;
+        margin-bottom: 2rem;
+      }
+      span {
+        position: absolute;
+        left: 0;top: 10.2rem;
+        width: 100%;
+        font-size: 1.6rem;
+        text-align: center;
+        color: #FFFFFF;
+      }
+    }
+    .submit-btn {
+      width: 100%;
+      height: 4.4rem;
+      margin: 0 auto;
+      background: #4EC1F7;
+      border-radius: 10rem;
+      text-align: center;
+      line-height: 4.4rem;
+      font-size: #ffffff;
+      font-size: 1.6rem;
+    }
+  }
+}
+.plant-certs-wrap {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  left: 0;top: 0;
+  right: 0;bottom: 0;
+  z-index: 9999;
+  .cover {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .cert-window {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .certs-wrap {
+    height: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10.4rem 2rem 0 4rem;
+    .cert-item {
+      width: 29rem;
+      display: inline-block;
+      height: 45.7rem;
+      margin-right: 2rem;
+      position: relative;
+      @include backImg('../images/cert-item-bg.png');
+      background-color: #fff;
+      background-size: 100% 21rem;
+      .cert-box {
+        width: 15.7rem;
+        position: relative;
+        margin: -3.4rem auto 5rem;
+        img {
+          display: block;
+          width: 100%;
+          height: 13.8rem;
+          margin-bottom: 2rem;
+        }
+        span {
+          position: absolute;
+          left: 0;top: 10.2rem;
+          width: 100%;
+          font-size: 1.6rem;
+          text-align: center;
+          color: #FFFFFF;
+        }
+      }
+      .cert-time {
+        width: 100%;
+        text-align: center;
+        font-size: 1.4rem;
+        color: #ffffff;
+        margin-bottom: 5.5rem;
+      }
+      .cert-detail {
+        width: 24rem;
+        font-size: 1.5rem;
+        color: #333333;
+        text-align: left;
+        margin: 0 auto 1rem;
+      }
+      .cert-no {
+        width: 24rem;
+        height: 7rem;
+        box-sizing: border-box;
+        padding-top: 3.2rem;
+        margin: 0 auto 1rem;
+        @include backImg('../images/tree-no-bg.png');
+        font-size: 2rem;
+        text-align: center;
+        color: #30BF6C;
+      }
+    }
+  }
+  .close-icon {
+    position: absolute;
+    left: 50%;bottom: 4.3rem;
+    transform: translateX(-50%);
+    width: 3.6rem;
+    height: 3.6rem;
+    @include backImg('../images/cert-close.png');
   }
 }

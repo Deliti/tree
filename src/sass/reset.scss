@@ -42,3 +42,26 @@ input,textarea {
   background: url($url) no-repeat 0 0;
   background-size: 100% 100%;
 }
+
+.tips-wrap {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;top: 0;
+  right: 0;bottom: 0;
+  .cover-wrap {
+    width: 100%;
+    height: 100%;
+    // background: rgba(0, 0, 0, .4);
+  }
+  .tips-content {
+    position: absolute;
+    left: 50%;top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 60%;
+    padding: 1rem;
+    color: #4EC1F7;
+    background: rgba(0, 0, 0 ,.7);
+    border-radius: 0.8rem;
+  }
+}

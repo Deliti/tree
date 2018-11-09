@@ -10,11 +10,26 @@
 <body>
   <div class="page-wrap">
     <div class="bg-wrap">
-      <div class="day-bg"></div>
-      <div class="left-stone"></div>
-      <div class="right-stone"></div>
-      <div class="grassland"></div>
-      <div class="tree tree-1"></div>
+      <div class="sky-bg day-bg">
+        <div class="sun"></div>
+        <div class="bird"></div>
+      </div>
+      <div class="sky-bg night-bg hide">
+        <div class="moon"></div>
+        <div class="star-1"></div>
+        <div class="star-2"></div>
+      </div>
+      <div class="grassland day-step-1" id="grassland"></div>
+      <div class="tree tree-1" id="tree">
+        <div class="sprinkler-box hide">
+          <div class="sprinkler"></div>
+          <div class="water"></div>
+        </div>
+        <div class="scratching-box hide">
+          <div class="hand"></div>
+          <div class="pest"></div>
+        </div>
+      </div>
     </div>
     <div class="page-content">
       <div class="top-wrap">
@@ -28,13 +43,13 @@
         </div>
       </div>
       <div class="tool-wrap">
-        <div class="handle-box group1">
+        <div class="handle-box group1" id="scratchingBtn">
           <img src="../images/group1.png" alt="">
         </div>
-        <div class="handle-box group2">
-          <img src="../images/group1.png" alt="">
+        <div class="handle-box group2" id="wateringBtn">
+          <img src="../images/group2.png" alt="">
         </div>
-        <div class="handle-box group3">
+        <div class="handle-box group3" id="plantingBtn">
           <img src="../images/group3.png" alt="">
         </div>
         <div class="process-box">
@@ -57,6 +72,48 @@
         <div class="get-more">查看更多</div>
       </div>
     </div>
+  </div>
+  <div class="plant-wrap hide">
+    <div class="cover"></div>
+    <div class="plant-cert">
+      <div class="cert-box animated zoomIn">
+        <img src="../images/cert-logo.png" alt="" class="cert-icon">
+        <span>植物证书</span>
+      </div>
+      <div class="submit-btn" id="comfirmBtn">
+        <label>确认</label>
+      </div>
+    </div>
+  </div>
+  <div class="plant-certs-wrap">
+    <div class="cover"></div>
+    <div class="cert-window">
+      <div class="certs-wrap">
+        <div class="cert-item">
+          <div class="cert-box animated zoomIn">
+            <img src="../images/cert-logo.png" alt="" class="cert-icon">
+            <span>植物证书</span>
+          </div>
+          <p class="cert-time">- 2018-10-24获得 -</p>
+          <p class="cert-detail">您与2018年10月24日捐赠的树木已被湖州电信认养，将种植到余村风景区！</p>
+          <div class="cert-no">
+            NO.HA167903600686
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-box animated zoomIn">
+            <img src="../images/cert-logo.png" alt="" class="cert-icon">
+            <span>植物证书</span>
+          </div>
+          <p class="cert-time">- 2018-10-24获得 -</p>
+          <p class="cert-detail">您与2018年10月24日捐赠的树木已被湖州电信认养，将种植到余村风景区！</p>
+          <div class="cert-no">
+            NO.HA167903600686
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="close-icon"></div>
   </div>
 </body>
 <script src="js/main.min.js"></script>
