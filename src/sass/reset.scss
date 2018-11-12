@@ -57,8 +57,8 @@ input,textarea {
   }
   .tips-content {
     position: absolute;
-    left: 50%;top: 50%;
-    transform: translate(-50%, -50%);
+    left: 50%;top: 20%;
+    transform: translateX(-50%);
     max-width: 60%;
     padding: 1rem;
     color: #4EC1F7;

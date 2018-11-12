@@ -1,36 +1,42 @@
 @import './reset.scss';
-@import './animate.scss';
-@import './myanimate.scss';
+
 .page-wrap {
-  .tree-wrap {
-    width: 100%;
-    height: 30rem;
-    position: relative;
-    .tree {
-      width: 40%;
-      height: 15rem;
-      position: absolute;
-      left: 30%;bottom: 2rem;
-      background: red;
-    }
-    .sprinkler-box {
-      display: none;
-      position: absolute;
-      right: 35%;top: 10rem;
-      animation: showsprinkler 1s forwards;
-      .sprinkler {
-        width: 5rem;
-        height: 5rem;
-        background: gold;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  .left {
+    position: fixed;
+    left: 0;bottom: 0;
+  }
+  .right {
+    position: fixed;
+    right: 0;bottom: 0;
+  }
+  .swiper-container {
+    width: 400%;
+    height: 100%;
+    position: absolute;
+    left: 0;top: 0;
+    box-sizing: border-box;
+    padding: 10% 0;
+    overflow: hidden;
+    .swiper-item {
+      width: 25%;
+      height: 100%;
+      float: left;
+      box-sizing: border-box;
+      // background: red;
+      .item-box {
+        width: 85%;
+        height: 100%;
+        margin: 0 7.5% 0 -3%;
+        background: red;
       }
-      .water {
-        display: none;
-        animation: watering 1s linear 3 1s;
-        width: 3rem;
-        height: 5rem;
-        background: green;
-        position: absolute;
-        left: -3.5rem;top: 0;
+    }
+    .swiper-item-active {
+      .item-box {
+        margin: 0 7.5%;
       }
     }
   }

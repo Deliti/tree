@@ -3,6 +3,7 @@
 @import './myanimate.scss';
 .page-wrap {
   width: 100%;
+  height: 100%;
   position: relative;
   .bg-wrap {
     position: absolute;
@@ -199,7 +200,7 @@
   }
   .page-content {
     position: relative;
-    padding-top: 52rem;
+    height: 100%;
     .top-wrap {
       width: 100%;
       @extend .flex-box;
@@ -323,8 +324,29 @@
         right: .4rem;top: 43.8rem;
       }
     }
+    .vr-wrap {
+      width: 6.9rem;
+      height: 2.8rem;
+      background: rgba(0, 0, 0, .3);
+      position: absolute;
+      border-radius: 1.4rem;
+      left: 1.2rem;bottom: 7rem;
+      @extend .flex-box;
+      box-sizing: border-box;
+      padding: 0 1.5rem 0 .9rem;
+      font-size: 1.2rem;
+      color: #FFFFFF;
+      .vr-icon {
+        width: 1.9rem;
+        height: 1.4rem;
+        @include backImg('../images/VR.png');
+      }
+    }
     .rank-wrap {
       width: 100%;
+      position: absolute;
+      left: 0;top: 100%;
+      margin-top: -7rem;
       @include backImg('../images/rank-bg.png');
       .rank-title {
         height: 7rem;
@@ -481,92 +503,111 @@
   .cert-window {
     width: 100%;
     height: 100%;
-    overflow-x: scroll;
-    overflow-y: hidden;
-  }
-  .certs-wrap {
-    height: 100%;
     box-sizing: border-box;
-    white-space: nowrap;
-    padding: 20% 0 0;
+    padding: 25% 0;
+    overflow: hidden;
+    position: absolute;
+    left: 0;top: 0;
+    z-index: 1;
     .cert-item {
-      width: 85%;
-      display: inline-block;
-      height: 70%;
-      margin: 10% 7%;
-      position: relative;
-      white-space: normal;
-      @include backImg('../images/cert-item-bg.png');
-      background-color: #fff;
-      background-size: 100% 21rem;
-      .cert-box {
-        width: 15.7rem;
-        position: absolute;
-        left: 50%;top: -3.4rem;
-        margin-left: -7.85rem;
-        img {
-          display: block;
-          width: 100%;
-          height: 13.8rem;
-          margin-bottom: 2rem;
-        }
-        span {
-          position: absolute;
-          left: 0;top: 10.2rem;
-          width: 100%;
-          font-size: 1.6rem;
-          text-align: center;
-          color: #FFFFFF;
-        }
-      }
-      .cert-flex-box {
-        width: 100%;
+      height: 100%;
+      float: left;
+      .cert-item-box {
+        width: 85%;
         height: 100%;
-        padding-top: 12rem;
+        margin: 0 7.5% 0 -3%;
+        position: relative;
+        @include backImg('../images/cert-item-bg.png');
+        background-color: #fff;
+        border-radius: .4rem;
+        background-size: 100% 45%;
+        padding-top: 50%;
         box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
+        .cert-box {
+          width: 53%;
+          position: absolute;
+          left: 50%;top: -3.4rem;
+          margin-left: -26.5%;
+          &::after {
+            content: '';
+            position: absolute;
+            left: 20%; bottom: -1.7rem;
+            width: 60%;
+            height: 1.2rem;
+            @include backImg('../images/shadow.png');
+          }
+          img {
+            display: block;
+            width: 100%;
+            margin-bottom: 2rem;
+          }
+          span {
+            position: absolute;
+            left: 0;bottom: 22%;
+            width: 100%;
+            font-size: 1.6rem;
+            text-align: center;
+            color: #FFFFFF;
+          }
+        }
+        .cert-time {
+          width: 100%;
+          text-align: center;
+          font-size: 1.4rem;
+          color: #ffffff;
+          position: absolute;
+          left: 50%; top: 34%;
+          transform: translateX(-50%);
+        }
+        .cert-flex-box {
+          width: 100%;
+          height: 100%;
+          padding: 0 8%;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .cert-detail {
+          width: 100%;
+          font-size: 1.5rem;
+          color: #333333;
+          text-align: left;
+        }
+        .cert-no {
+          width: 100%;
+          height: 7rem;
+          box-sizing: border-box;
+          padding-top: 3.2rem;
+          @include backImg('../images/tree-no-bg.png');
+          font-size: 2rem;
+          text-align: center;
+          color: #30BF6C;
+        }
+        .submit-btn {
+          width: 100%;
+          height: 4rem;
+          margin: 0 auto 2rem;
+          background: #30BF6C;
+          border-radius: 10rem;
+          font-size: 1.6rem;
+          color: #FFFFFF;
+          text-align: center;
+          line-height: 4rem;
+        }
       }
-      .cert-time {
-        width: 100%;
-        text-align: center;
-        font-size: 1.4rem;
-        color: #ffffff;
-      }
-      .cert-detail {
-        width: 24rem;
-        font-size: 1.5rem;
-        color: #333333;
-        text-align: left;
-      }
-      .cert-no {
-        width: 24rem;
-        height: 7rem;
-        box-sizing: border-box;
-        padding-top: 3.2rem;
-        @include backImg('../images/tree-no-bg.png');
-        font-size: 2rem;
-        text-align: center;
-        color: #30BF6C;
-      }
-      .submit-btn {
-        width: 22.4rem;
-        height: 4rem;
-        margin: 0 auto 2rem;
-        background: #30BF6C;
-        border-radius: 10rem;
-        font-size: 1.6rem;
-        color: #FFFFFF;
-        text-align: center;
-        line-height: 4rem;
+    }
+    .swiper-item-active {
+      .cert-item-box {
+        margin: 0 7.5%;
       }
     }
   }
   .close-icon {
     position: absolute;
-    left: 50%;bottom: 4.3rem;
+    left: 50%;bottom: 6.5%;
+    z-index: 1;
     transform: translateX(-50%);
     width: 3.6rem;
     height: 3.6rem;

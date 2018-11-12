@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <link rel="stylesheet" href="css/test.min.css">
+    <title>登录</title>
+  </head>
+  <body>
+    <div class="page-wrap">
+      <div class="swiper-container">
+        <div class="swiper-item swiper-item-active"><div class="item-box"></div></div>
+        <div class="swiper-item"><div class="item-box"></div></div>
+        <div class="swiper-item"><div class="item-box"></div></div>
+        <div class="swiper-item"><div class="item-box"></div></div>
+      </div>
+      <span class="left">左滑</span><span class="right">右滑</span>
+    </div>
+  </body>
+  <script src="js/main.min.js"></script>
+  <script>
+    var swiperContainer = $('.swiper-container')
+    var len = $('.swiper-item').length
+    var index = 0
+    $('.left').on('click', function () {
+      if (index < 1) {
+        return false
+      }
+      index --
+      $('.swiper-item').removeClass('swiper-item-active')
+      $('.swiper-item').eq(index).addClass('swiper-item-active')
+      var leftW = '-'+index*100+'%'
+      swiperContainer.animate({left:leftW},400)
+    })
+    $('.right').on('click', function () {
+      if (index >= len - 1) {
+        return false
+      }
+      index ++
+      $('.swiper-item').removeClass('swiper-item-active')
+      $('.swiper-item').eq(index).addClass('swiper-item-active')
+      var leftW = '-'+index*100+'%'
+      swiperContainer.animate({left:leftW},400)
+    })
+
+    function moveAnimate (type) {
+      if (type == 'left') {
+        if (index < 1) {
+          return false
+        }
+        index --
+      } else {
+        if (index >= len - 1) {
+          return false
+        }
+        index ++
+      }
+      $('.swiper-item').removeClass('swiper-item-active')
+      $('.swiper-item').eq(index).addClass('swiper-item-active')
+      var leftW = '-'+index*100+'%'
+      swiperContainer.animate({left:leftW},400)
+    }
+
+    $('.page-wrap').bind('touchstart',function(e){
+        startX = e.originalEvent.changedTouches[0].pageX;
+    });
+
+    $(".page-wrap").bind("touchend",function(e){
+        //获取滑动屏幕时的X,Y
+      endX = e.originalEvent.changedTouches[0].pageX;
+      //获取滑动距离
+      distanceX = endX-startX;
+      //判断滑动方向
+      if(distanceX>50){
+        moveAnimate('left')
+      }else if(distanceX<-50){
+        moveAnimate('right')
+      }
+    })
+  </script>
+</html>
