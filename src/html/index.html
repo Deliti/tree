@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>首页</title>
   <link rel="stylesheet" href="css/index.min.css">
@@ -34,42 +34,44 @@
     <div class="page-content">
       <div class="top-wrap">
         <div class="top-box certificate">
-          <img src="../images/cert.png" alt="" class="cert-icon">
-          <label>证书（2）</label>
+          <img src="images/cert.png" alt="" class="cert-icon">
+          <label>证书</label>
         </div>
         <div class="top-box signin">
-          <img src="../images/sign.png" alt="" class="sign-icon">
+          <img src="images/sign.png" alt="" class="sign-icon">
           <label>签到</label>
         </div>
       </div>
       <div class="tool-wrap">
         <div class="handle-box group1" id="scratchingBtn">
-          <img src="../images/group1.png" alt="">
+          <img src="images/group1.png" alt="">
         </div>
         <div class="handle-box group2" id="wateringBtn">
-          <img src="../images/group2.png" alt="">
+          <img src="images/group2.png" alt="">
         </div>
-        <div class="handle-box group3" id="plantingBtn">
-          <img src="../images/group3.png" alt="">
+        <div class="handle-box group3 hide" id="plantingBtn">
+          <img src="images/group3.png" alt="">
         </div>
         <div class="process-box">
-          <div class="process-in"></div>
+          <div class="process-in">
+            <div class="process-in-in"></div>
+          </div>
         </div>
-        <span class="process-score">80</span>
+        <span class="process-score">0</span>
       </div>
       <div class="rank-wrap">
         <div class="rank-title">排行榜</div>
         <section class="rank-container">
-          <div class="rank-item">
+          <!-- <div class="rank-item">
             <i class="medal-icon medal1"></i>
             <div>
               <p class="username">135****9156</p>
               <p class="userdesc">获得了4个证书</p>
             </div>
             <span class="userscore">210.1</span>
-          </div>
+          </div> -->
         </section>
-        <div class="get-more">查看更多</div>
+        <div class="get-more hide">查看更多</div>
       </div>
     </div>
   </div>
@@ -77,7 +79,7 @@
     <div class="cover"></div>
     <div class="plant-cert">
       <div class="cert-box animated zoomIn">
-        <img src="../images/cert-logo.png" alt="" class="cert-icon">
+        <img src="images/cert-logo.png" alt="" class="cert-icon">
         <span>植物证书</span>
       </div>
       <div class="submit-btn" id="comfirmBtn">
@@ -85,13 +87,13 @@
       </div>
     </div>
   </div>
-  <div class="plant-certs-wrap">
+  <div class="plant-certs-wrap hide">
     <div class="cover"></div>
     <div class="cert-window">
-      <div class="certs-wrap">
-        <div class="cert-item">
+      <div class="certs-wrap" id="certsBox">
+        <!-- <div class="cert-item">
           <div class="cert-box animated zoomIn">
-            <img src="../images/cert-logo.png" alt="" class="cert-icon">
+            <img src="images/cert-logo.png" alt="" class="cert-icon">
             <span>植物证书</span>
           </div>
           <p class="cert-time">- 2018-10-24获得 -</p>
@@ -99,18 +101,8 @@
           <div class="cert-no">
             NO.HA167903600686
           </div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-box animated zoomIn">
-            <img src="../images/cert-logo.png" alt="" class="cert-icon">
-            <span>植物证书</span>
-          </div>
-          <p class="cert-time">- 2018-10-24获得 -</p>
-          <p class="cert-detail">您与2018年10月24日捐赠的树木已被湖州电信认养，将种植到余村风景区！</p>
-          <div class="cert-no">
-            NO.HA167903600686
-          </div>
-        </div>
+          <div class="submit-btn"><label>查看</label></div>
+        </div> -->
       </div>
     </div>
     <div class="close-icon"></div>

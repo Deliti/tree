@@ -22,12 +22,15 @@ $(function () {
           return false
         }
         $('#mobileCode').countDown(60, intervals, function () {
-          // 获取验证码
-          // getData(getLoginUrl('getPhoneVerifyCode')+'?phone='+$('#regiName').val()+'&checkUser=1&len=4&channel=WEB', '', function(data){
-          //   if(data.code == 0) {
-          //     console.log('获取验证码成功')
-          //   }
-          // },'get');
+          var params = {
+            phone: $('#username').val()
+          }
+          
+          ajaxRequest('/Api/login/getVerificationCode', params, function (data) {
+            if (data.code === 200) {
+              utils.tips('验证码已发送成功')
+            }
+          }, false, 'get')
         });
       }
     })
@@ -38,8 +41,21 @@ $(function () {
       if (!verifyForm('login')) {
         return false
       }
-      console.log('校验成功')
-      location.href = "./index.html"
+      var phone = $('#username').val()
+      var params = {
+        phone: phone,
+        verificationCode: $('#password').val() 
+      }
+      ajaxRequest('/Api/login/login', params, function (data) {
+        if (data.code === 200) {
+          localStorage['token'] = data.data
+          localStorage['phone'] = phone
+          // localStorage['treeId'] = data.data.treeId
+          location.href = "./index.html"
+        }
+      }, false)
+      // console.log('校验成功')
+      // location.href = "./index.html"
       // var params = {
       //   'phone': $('#username').val(),
       //   'password': Base64.encode($('#pwd').val()),

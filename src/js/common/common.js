@@ -8,9 +8,11 @@
       } else {
         $('body').append($('<div class="hiding-cover"></div>'))
       }
+      $('body').css("overflow","hidden");
     },
     hideCover: function () {
       $('.hiding-cover').remove()
+      $('body').css("overflow","auto");
     },
     dialog: function (dialogConf) {
       /**

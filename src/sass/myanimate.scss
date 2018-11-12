@@ -1,22 +1,26 @@
+@mixin backImg($url) {
+  background: url($url) no-repeat 0 0;
+  background-size: 100% 100%;
+}
 @keyframes showsprinkler {
   0% {
     transform: rotate(15deg);
   }
   100% {
-    transform: rotate(-30deg);
+    transform: rotate(-20deg);
   }
 }
 
 @keyframes watering {
   0% {
-    transform: translateX(0);
+    // transform: translateX(0);
+    @include backImg('../images/rain-1.png');
     opacity: 1;
   }
-  60% {
-    transform: translateX(-2rem);
+  90% {
+    @include backImg('../images/rain-3.png');
   }
   100% {
-    transform: translateX(-2rem);
     opacity: 0;
   }
 }
@@ -58,27 +62,42 @@
 
 @keyframes catchpest {
   0% {
+    @include backImg('../images/pest-2.png');
     transform: translate(0, 0);
     opacity: 1;
   }
-  60% {
+  40% {
     transform: translate(0, 1rem);
   }
-  100% {
+  90% {
+    @include backImg('../images/pest-2.png');
     transform: translate(3rem, -1rem);
+  }
+  100% {
     opacity: 0;
   }
 }
 
 @keyframes processlight {
   0% {
-    background-image: linear-gradient(-180deg, #E0DC3A 0%, #82C321 40%, #4CB047 58%, #2D9D81 78%, #0761C0 100%);
+    // background-image: linear-gradient(-180deg, #E0DC3A 0%, #82C321 40%, #4CB047 58%, #2D9D81 78%, #0761C0 100%);
+    opacity: 0;
   }
   100% {
-    background-image: linear-gradient(-180deg, rgb(245, 241, 6) 0%, rgb(149, 242, 9) 40%, rgb(19, 237, 8) 58%, rgb(8, 237, 180) 78%, rgb(7, 119, 238) 100%);
+    opacity: 1;
   }
 }
 
-
+@keyframes myrotate {
+  0% {
+    transform: scale(.8);
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(.8);
+  }
+}
 
 

@@ -1,10 +1,4 @@
-var globalConfig = {
-  // apiRemote: "http://99.48.58.89:8085"
-  // apiRemote: "https://sittest.memedai.cn"
-  apiRemote: "http://106.14.76.240:8080"
-};
-
-var version ='dev';
+var version ='prod';
 
 var gulp = require("gulp"), // 基础库
     imagemin = require("gulp-imagemin"), // 图片压缩
@@ -16,32 +10,7 @@ var gulp = require("gulp"), // 基础库
     concat = require("gulp-concat"), // 合并文件
     clean = require("gulp-clean"), // 清空文件夹
     ejs = require("gulp-ejs"), // html模板引擎
-    htmlmin = require("gulp-htmlmin"), // html页面压缩
-    proxyMiddleware = require('http-proxy-middleware'), // 代理中间件
-    browserSync = require("browser-sync"); // 热加载服务
-
-var targetProxy = proxyMiddleware(['/Api'], {
-    target: globalConfig.apiRemote,
-    changeOrigin: true,
-    logLevel: 'debug'
-});
-
-var browserS = browserSync.create("coupon");
-const reload = browserSync.get("coupon").reload;
-
-gulp.task('brSync', function() {
-  browserS.init({
-    server: {
-      baseDir: './dist',
-      middleware: [targetProxy]
-    },
-    notify: false,
-    port: 3020,
-    ui: {
-      port: 3021
-    }
-  });
-});
+    htmlmin = require("gulp-htmlmin");// html页面压缩
 
 gulp.task("css", function () {
   gulp.src([
@@ -110,10 +79,4 @@ gulp.task("html", function () {
 
 gulp.task("default", [
   "html", "css", "commonjs", "pagejs",
-  "images", "brSync"], function () {
-    gulp.watch(["./src/html/*.html"], ["html"]).on('change', reload);
-    gulp.watch(["./src/images/*"], ["images"]).on('change', reload);
-    gulp.watch(["./src/js/common/*.js"], ["commonjs"]).on('change', reload);
-    gulp.watch(["./src/js/pages/*.js"], ["pagejs"]).on('change', reload);
-    gulp.watch(["./src/sass/*.scss","./*/sass/**/*.scss"], ["css"]).on('change', reload);
-});
+  "images"]);
