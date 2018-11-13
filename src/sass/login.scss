@@ -15,6 +15,18 @@
     text-align: center;
     margin-bottom: 11.2rem;
   }
+  .login-logo {
+    width: 80%;
+    position: absolute;
+    left: 10%;top: 2rem;
+  }
+  .logo-wrap {
+    width: 100%;
+    text-align: center;
+    .dx-logo {
+      width: 6rem;
+    }
+  }
   .input-wrap {
     width: 26rem;
     margin: 0 auto 2.5rem;
@@ -67,12 +79,12 @@
   .submit-btn {
     width: 24.2rem;
     height: 4.4rem;
-    margin: 0 auto;
-    background: #4EC1F7;
+    margin: 0 auto 2rem;
+    background: #2fa800;
     border-radius: 10rem;
     text-align: center;
     line-height: 4.4rem;
-    font-size: #ffffff;
+    color: #ffffff;
     font-size: 1.6rem;
   }
 }

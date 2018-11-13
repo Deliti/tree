@@ -5,22 +5,32 @@
   width: 100%;
   height: 100%;
   position: relative;
+  overflow-x: hidden;
   .bg-wrap {
     position: absolute;
     left: 0;top: 0;
     width: 100%;
+    height: 100%;
     .sky-bg {
       width: 100%;
       height: 54rem;
       position: absolute;
       left: 0;top: 0;
       transition: all .5s;
-      .sun {
+      .sun-bg {
         width: 25.5rem;
         height: 23.3rem;
         position: absolute;
         left: 0;top: 1.8rem;
+        @include backImg('../images/sun-bg.png');
+      }
+      .sun {
+        width: 4.3rem;
+        height: 4.3rem;
+        position: absolute;
+        left: 4.4rem;top: 7.8rem;
         @include backImg('../images/sun.png');
+        animation: sun 4s infinite linear;
       }
       .bird {
         width: 7.5rem;
@@ -61,7 +71,7 @@
       width: 100%;
       height: 38.5rem;
       position: absolute;
-      left: 0;top: 27.4rem;
+      left: 0;bottom: 0;
       transition: all .5s;
     }
     .day-step-1 {
@@ -77,6 +87,7 @@
       @include backImg('../images/grassland-night.png');
     }
     .tree {
+      bottom: 18rem;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
@@ -132,7 +143,6 @@
     .tree-1 {
       width: 5.5rem;
       height: 6.2rem;
-      top: 39.7rem;
       @include backImg('../images/tree-1.png');
       .scratching-box {
         .hand {
@@ -146,7 +156,6 @@
     .tree-2 {
       width: 12.2rem;
       height: 12.9rem;
-      top: 33.7rem;
       @include backImg('../images/tree-2.png');
       .sprinkler-box {
         right: -30%;top: -6rem;
@@ -163,7 +172,6 @@
     .tree-3 {
       width: 10.9rem;
       height: 15rem;
-      top: 30.2rem;
       @include backImg('../images/tree-3.png');
       .sprinkler-box {
         right: -30%;top: -6rem;
@@ -180,7 +188,6 @@
     .tree-4 {
       width: 18rem;
       height: 18.2rem;
-      top: 27.2rem;
       @include backImg('../images/tree-4.png');
       .sprinkler-box {
         right: -30%;top: -6rem;
@@ -207,7 +214,6 @@
       position: absolute;
       left: 0;top: 0;
       padding-top: 3rem;
-      margin-bottom: 53rem;
       .top-box {
         height: 3.8rem;
         padding: 0 .6rem;
@@ -235,11 +241,11 @@
     }
     .tool-wrap {
       position: absolute;
-      left: 0;top: 0;
+      left: 0;bottom: 16rem;
       width: 100%;
       .handle-box {
         position: absolute;
-        right: 2.8rem;top: 0;
+        right: 2.8rem;bottom: 0;
         width: 4.8rem;
         img {
           width: 4.8rem;
@@ -248,13 +254,13 @@
         }
       }
       .group1 {
-        top: 18rem;
+        bottom: 18rem;
       }
       .group2 {
-        top: 27rem;
+        bottom: 10rem;
       }
       .group3 {
-        top: 35.7rem;
+        bottom: 2rem;
       }
       #plantingBtn {
         transform: scale(1);
@@ -264,7 +270,7 @@
         width: 1.6rem;
         height: 26rem;
         position: absolute;
-        right: .4rem;top: 17rem;
+        right: .4rem;bottom: 2rem;
         background-image: linear-gradient(90deg, #ECEEED 0%, #878785 100%);
         border: 0 solid #35535F;
         border-radius: 5rem;
@@ -321,7 +327,7 @@
         font-size: 1.1rem;
         color: #ffffff;
         position: absolute;
-        right: .4rem;top: 43.8rem;
+        right: .4rem;bottom: 0;
       }
     }
     .vr-wrap {
@@ -342,12 +348,16 @@
         @include backImg('../images/VR.png');
       }
     }
+    .stone {
+      position: absolute;
+      right: -2.1rem;bottom: 3.5rem;
+      width: 23.6rem;
+    }
     .rank-wrap {
       width: 100%;
       position: absolute;
       left: 0;top: 100%;
       margin-top: -7rem;
-      @include backImg('../images/rank-bg.png');
       .rank-title {
         height: 7rem;
         width: 100%;
@@ -355,9 +365,11 @@
         color: #FD7A22;
         box-sizing: border-box;
         padding: 3.8rem 0 0 1.7rem;
+        @include backImg('../images/rank-bg.png');
         border-bottom: 1px solid #E7E7E7;
       }
       .rank-container {
+        background-color: #FFFFFF;
         .no-rank {
           width: 100%;
           height: 8.6rem;

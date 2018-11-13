@@ -2,6 +2,16 @@
   background: url($url) no-repeat 0 0;
   background-size: 100% 100%;
 }
+
+@keyframes sun {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes showsprinkler {
   0% {
     transform: rotate(15deg);
