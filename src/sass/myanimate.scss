@@ -12,6 +12,15 @@
   }
 }
 
+@keyframes star {
+  0% {
+    opacity: 0.5; 
+  }
+  100% {
+    opacity: 1; 
+  }
+}
+
 @keyframes showsprinkler {
   0% {
     transform: rotate(15deg);

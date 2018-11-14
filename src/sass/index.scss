@@ -51,6 +51,7 @@
         height: 1.8rem;
         position: absolute;
         left: 5rem;top: 13rem;
+        animation: star 2s infinite;
         @include backImg('../images/star1.png');
       }
       .star-2 {
@@ -58,6 +59,7 @@
         height: 1.3rem;
         position: absolute;
         right: 1.4rem;top: 12rem;
+        animation: star 2s infinite;
         @include backImg('../images/star2.png');
       }
     }
@@ -474,14 +476,6 @@
         height: 13.8rem;
         margin-bottom: 2rem;
       }
-      span {
-        position: absolute;
-        left: 0;top: 10.2rem;
-        width: 100%;
-        font-size: 1.6rem;
-        text-align: center;
-        color: #FFFFFF;
-      }
     }
     .submit-btn {
       width: 100%;
@@ -525,9 +519,9 @@
       height: 100%;
       float: left;
       .cert-item-box {
-        width: 85%;
+        width: 70%;
         height: 100%;
-        margin: 0 7.5% 0 -3%;
+        margin: 0 15% 0 -6%;
         position: relative;
         @include backImg('../images/cert-item-bg.png');
         background-color: #fff;
@@ -612,7 +606,7 @@
     }
     .swiper-item-active {
       .cert-item-box {
-        margin: 0 7.5%;
+        margin: 0 15%;
       }
     }
   }

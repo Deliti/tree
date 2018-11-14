@@ -238,7 +238,7 @@ $(function () {
           swiperLen = content.length
           $.each(content, function (index, item) {
             var acitveClass = index == 0? 'swiper-item-active' : ''
-            html += '<div class="cert-item ' + acitveClass + '" style="width:' + 1/content.length*100 + '%"><div class="cert-item-box"><div class="cert-box animated zoomIn"><img src="images/cert-logo.png" alt="" class="cert-icon"><span>植物证书</span></div>'
+            html += '<div class="cert-item ' + acitveClass + '" style="width:' + 1/content.length*100 + '%"><div class="cert-item-box"><div class="cert-box animated zoomIn"><img src="images/cert-logo.png" alt="" class="cert-icon"><span></span></div>'
             html += '<p class="cert-time">- 2018-10-24获得 -</p><div class="cert-flex-box"><p class="cert-detail">您与2018年10月24日捐赠的树木已被湖州电信认养，将种植到余村风景区！</p><div class="cert-no">NO.' + item.treeCode + '</div><div class="submit-btn"><label>查看</label></div></div></div></div>'
           })
           $('#certsBox').css({
