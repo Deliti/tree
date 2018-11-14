@@ -25,7 +25,7 @@ $(function () {
           var params = {
             phone: $('#username').val()
           }
-          
+
           ajaxRequest('/Api/login/getVerificationCode', params, function (data) {
             if (data.code === 200) {
               utils.tips('验证码已发送成功')
@@ -36,41 +36,21 @@ $(function () {
     })
 
     $('#loginBtn').on('click', function () {
-      // 15250997094
-      // qwer1234
       if (!verifyForm('login')) {
         return false
       }
       var phone = $('#username').val()
       var params = {
         phone: phone,
-        verificationCode: $('#password').val() 
+        verificationCode: $('#password').val()
       }
       ajaxRequest('/Api/login/login', params, function (data) {
         if (data.code === 200) {
           localStorage['token'] = data.data
           localStorage['phone'] = phone
-          // localStorage['treeId'] = data.data.treeId
-          location.href = "./index.html"
+          location.replace("./index.html")
         }
       }, false)
-      // console.log('校验成功')
-      // location.href = "./index.html"
-      // var params = {
-      //   'phone': $('#username').val(),
-      //   'password': Base64.encode($('#pwd').val()),
-      //   'signtype': 'B',
-      //   'appId': 'e863890c171bcac80cf62691252fd340',
-      //   'channel': 'WEB',
-      //   'clientId': ''
-      // }
-      // getData(getLoginUrl('login'), params, function(data){
-      //   if(data.code == 0) {
-      //     setStorage('userToken', data.content.phone);
-      //     setStorage('mmTicket', data.access_token);
-      //     window.location.href = href;
-      //   }
-      // }, '', 'login');
     })
   }
 
