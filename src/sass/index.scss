@@ -143,6 +143,15 @@
           left: 25%;bottom: 1rem;
         }
       }
+      .addscore {
+        display: none;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        left: 0;top: -1.5rem;
+        font-size: 1.6rem;
+        color: #ffffff;
+      }
     }
     .tree-1 {
       width: 5.5rem;
@@ -221,7 +230,7 @@
       .top-box {
         height: 3.8rem;
         padding: 0 .6rem;
-        background: rgba(255,255,255,0.80);
+        background:	#F5F5F5;
         @extend .flex-box;
         img {
           width: 3rem;
@@ -253,7 +262,6 @@
         width: 4.8rem;
         img {
           width: 4.8rem;
-          height: 7.3rem;
           margin-bottom: .5rem;
         }
       }
@@ -264,7 +272,8 @@
         bottom: 10rem;
       }
       .group3 {
-        bottom: 2rem;
+        right: 15rem;
+        bottom: 20rem;
       }
       #plantingBtn {
         transform: scale(1);
@@ -357,6 +366,15 @@
       right: -2.1rem;bottom: 3.5rem;
       width: 23.6rem;
     }
+    .ques-wrap {
+      width: 2.8rem;
+      height: 2.8rem;
+      @include backImg('../images/q-icon.png'); 
+      position: absolute;
+      border-radius: 1.4rem;
+      right: .6rem;bottom: 7rem;
+      opacity: .7;
+    }
     .rank-wrap {
       width: 100%;
       position: absolute;
@@ -374,6 +392,7 @@
       }
       .rank-container {
         background-color: #FFFFFF;
+        height: 1px;
         .no-rank {
           width: 100%;
           height: 8.6rem;
@@ -458,39 +477,125 @@
   left: 0;top: 0;
   right: 0;bottom: 0;
   z-index: 9999;
+  box-sizing: border-box;
+  padding: 25% 0;
   .cover {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, .4);
+    position: absolute;
+    left: 0;
+    top: 0;
   }
   .plant-cert {
+    margin: 0 15%;
     position: absolute;
-    left: 50%;top: 50%;
-    transform: translate(-50%, -60%);
-    width: 15.7rem;
-    padding: 1rem;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    @include backImg('../images/cert-item-bg.png');
+    background-color: #fff;
+    border-radius: .4rem;
+    background-size: 100% 45%;
+    padding-top: 50%;
+    box-sizing: border-box;
+    width: 70%;
     .cert-box {
-      width: 100%;
-      position: relative;
+      width: 53%;
+      position: absolute;
+      left: 50%;top: -3.4rem;
+      margin-left: -26.5%;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 20%; bottom: -1.7rem;
+        width: 60%;
+        height: 1.2rem;
+        @include backImg('../images/shadow.png');
+      }
       img {
         display: block;
         width: 100%;
-        height: 13.8rem;
         margin-bottom: 2rem;
       }
+      span {
+        position: absolute;
+        left: 0;bottom: 22%;
+        width: 100%;
+        font-size: 1.6rem;
+        text-align: center;
+        color: #FFFFFF;
+      }
+    }
+    .cert-time {
+      width: 100%;
+      text-align: center;
+      font-size: 1.4rem;
+      color: #ffffff;
+      position: absolute;
+      left: 50%; top: 34%;
+      transform: translateX(-50%);
+    }
+    .cert-flex-box {
+      width: 100%;
+      height: 100%;
+      padding: 0 8%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cert-detail {
+      width: 100%;
+      font-size: 1.5rem;
+      color: #333333;
+      text-align: left;
+    }
+    .cert-no {
+      width: 100%;
+      height: 7rem;
+      box-sizing: border-box;
+      padding-top: 3.2rem;
+      @include backImg('../images/tree-no-bg.png');
+      font-size: 2rem;
+      text-align: center;
+      color: #30BF6C;
     }
     .submit-btn {
-      display: block;
       width: 100%;
-      height: 4.4rem;
-      margin: 0 auto;
-      background: #4EC1F7;
+      height: 4rem;
+      margin: 0 auto 2rem;
+      background: #30BF6C;
       border-radius: 10rem;
-      text-align: center;
-      line-height: 4.4rem;
-      font-size: #ffffff;
       font-size: 1.6rem;
+      color: #FFFFFF;
+      text-align: center;
+      line-height: 4rem;
     }
+  }
+}
+.desc-wrap {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  left: 0;top: 0;
+  right: 0;bottom: 0;
+  z-index: 9999;
+  .cover {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  img {
+    width: 70%;
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 .plant-certs-wrap {

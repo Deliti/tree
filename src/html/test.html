@@ -4,79 +4,128 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
-    <link rel="stylesheet" href="css/test.min.css">
+    <link rel="stylesheet" href="css/index.min.css">
     <title>登录</title>
   </head>
   <body>
-    <div class="page-wrap">
-      <div class="swiper-container">
-        <div class="swiper-item swiper-item-active"><div class="item-box"></div></div>
-        <div class="swiper-item"><div class="item-box"></div></div>
-        <div class="swiper-item"><div class="item-box"></div></div>
-        <div class="swiper-item"><div class="item-box"></div></div>
-      </div>
-      <span class="left">左滑</span><span class="right">右滑</span>
-    </div>
+      <div class="page-wrap">
+          <div class="bg-wrap">
+            <div class="sky-bg day-bg">
+              <div class="sun-bg"></div>
+              <div class="sun"></div>
+              <div class="bird"></div>
+            </div>
+            <!-- <div class="sky-bg night-bg hide">
+              <div class="moon"></div>
+              <div class="star-1"></div>
+              <div class="star-2"></div>
+            </div>
+            <div class="grassland day-step-1" id="grassland"></div>
+            <div class="tree tree-1" id="tree">
+              <div class="sprinkler-box hide">
+                <div class="sprinkler"></div>
+                <div class="water"></div>
+              </div>
+              <div class="scratching-box hide">
+                <div class="hand"></div>
+                <div class="pest"></div>
+              </div>
+            </div> -->
+          </div>
+          <div class="page-content">
+            <div class="top-wrap">
+              <div class="top-box certificate">
+                <img src="images/cert.png" alt="" class="cert-icon">
+                <label>证书</label>
+              </div>
+              <div class="top-box signin">
+                <img src="images/sign.png" alt="" class="sign-icon">
+                <label>签到</label>
+              </div>
+            </div>
+            <!-- <div class="tool-wrap">
+              <div class="handle-box group1" id="scratchingBtn">
+                <img src="images/group1.png" alt="">
+              </div>
+              <div class="handle-box group2" id="wateringBtn">
+                <img src="images/group2.png" alt="">
+              </div>
+              <div class="handle-box group3 hide" id="plantingBtn">
+                <img src="images/group3.png" alt="">
+              </div>
+              <div class="process-box">
+                <div class="process-in">
+                  <div class="process-in-in"></div>
+                </div>
+              </div>
+              <span class="process-score">0</span>
+            </div> -->
+            <a href="https://veervr.tv/experiences/9ySRslvBBIwgZyvp8yc0IYadcc0" class="vr-wrap"><i class="vr-icon"></i><span>VR</span></a>
+            <img src="images/stone.png" alt="" class="stone">
+            <div class="rank-wrap">
+              <!-- <div class="slot-wrap"></div>
+              <div class="rank-title">排行榜</div> -->
+              <section class="rank-container">
+                <div class="rank-item">
+                  <i class="medal-icon medal1"></i>
+                  <div>
+                    <p class="username">135****9156</p>
+                    <p class="userdesc">获得了4个证书</p>
+                  </div>
+                  <span class="userscore">210.1</span>
+                </div>
+                <div class="rank-item">
+                    <i class="medal-icon medal1"></i>
+                    <div>
+                      <p class="username">135****9156</p>
+                      <p class="userdesc">获得了4个证书</p>
+                    </div>
+                    <span class="userscore">210.1</span>
+                  </div>
+                  <div class="rank-item">
+                      <i class="medal-icon medal1"></i>
+                      <div>
+                        <p class="username">135****9156</p>
+                        <p class="userdesc">获得了4个证书</p>
+                      </div>
+                      <span class="userscore">210.1</span>
+                    </div>
+                    <div class="rank-item">
+                        <i class="medal-icon medal1"></i>
+                        <div>
+                          <p class="username">135****9156</p>
+                          <p class="userdesc">获得了4个证书</p>
+                        </div>
+                        <span class="userscore">210.1</span>
+                      </div><div class="rank-item">
+                          <i class="medal-icon medal1"></i>
+                          <div>
+                            <p class="username">135****9156</p>
+                            <p class="userdesc">获得了4个证书</p>
+                          </div>
+                          <span class="userscore">210.1</span>
+                        </div>
+                        <div class="rank-item">
+                            <i class="medal-icon medal1"></i>
+                            <div>
+                              <p class="username">135****9156</p>
+                              <p class="userdesc">获得了4个证书</p>
+                            </div>
+                            <span class="userscore">210.1</span>
+                          </div>
+                          <div class="rank-item">
+                              <i class="medal-icon medal1"></i>
+                              <div>
+                                <p class="username">135****9156</p>
+                                <p class="userdesc">获得了4个证书</p>
+                              </div>
+                              <span class="userscore">210.1</span>
+                            </div>
+              </section>
+              <div class="get-more hide">查看更多</div>
+            </div>
+          </div>
+        </div>
   </body>
   <script src="js/main.min.js"></script>
-  <script>
-    var swiperContainer = $('.swiper-container')
-    var len = $('.swiper-item').length
-    var index = 0
-    $('.left').on('click', function () {
-      if (index < 1) {
-        return false
-      }
-      index --
-      $('.swiper-item').removeClass('swiper-item-active')
-      $('.swiper-item').eq(index).addClass('swiper-item-active')
-      var leftW = '-'+index*100+'%'
-      swiperContainer.animate({left:leftW},400)
-    })
-    $('.right').on('click', function () {
-      if (index >= len - 1) {
-        return false
-      }
-      index ++
-      $('.swiper-item').removeClass('swiper-item-active')
-      $('.swiper-item').eq(index).addClass('swiper-item-active')
-      var leftW = '-'+index*100+'%'
-      swiperContainer.animate({left:leftW},400)
-    })
-
-    function moveAnimate (type) {
-      if (type == 'left') {
-        if (index < 1) {
-          return false
-        }
-        index --
-      } else {
-        if (index >= len - 1) {
-          return false
-        }
-        index ++
-      }
-      $('.swiper-item').removeClass('swiper-item-active')
-      $('.swiper-item').eq(index).addClass('swiper-item-active')
-      var leftW = '-'+index*100+'%'
-      swiperContainer.animate({left:leftW},400)
-    }
-
-    $('.page-wrap').bind('touchstart',function(e){
-        startX = e.originalEvent.changedTouches[0].pageX;
-    });
-
-    $(".page-wrap").bind("touchend",function(e){
-        //获取滑动屏幕时的X,Y
-      endX = e.originalEvent.changedTouches[0].pageX;
-      //获取滑动距离
-      distanceX = endX-startX;
-      //判断滑动方向
-      if(distanceX>50){
-        moveAnimate('left')
-      }else if(distanceX<-50){
-        moveAnimate('right')
-      }
-    })
-  </script>
 </html>

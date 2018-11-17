@@ -44,6 +44,13 @@ Tree.prototype = {
     this.el.find('.sprinkler-box .water').fadeIn();
     this.el.removeClass('mypulse');
     var that = this
+    // 增加的字
+    // setTimeout(function () {
+    //   $('.addscore').removeClass('fadeOutUp').text('+5').fadeIn();
+    //   setTimeout(function () {
+    //     $('.addscore').addClass('fadeOutUp');
+    //   }, 2000)
+    // }, 2000)
     setTimeout(function () {
       $('.sprinkler-box').fadeOut();
       $('.sprinkler-box .water').hide();
@@ -59,6 +66,13 @@ Tree.prototype = {
     this.el.find('.scratching-box .pest').fadeIn();
     this.el.removeClass('mypulse');
     var that = this
+    // 增加的字
+    // setTimeout(function () {
+    //   $('.addscore').removeClass('fadeOutUp').text('+10').fadeIn();
+    //   setTimeout(function () {
+    //     $('.addscore').addClass('fadeOutUp');
+    //   }, 2000)
+    // }, 1000)
     setTimeout(function () {
       $('.scratching-box').fadeOut();
       $('.scratching-box .pest').hide();
@@ -107,6 +121,8 @@ Tree.prototype = {
 }
 
 $(function () {
+  var phoneHeight = document.documentElement.clientHeight
+  resetSize()
   var treeObj = null
   var treeId = ''
   var phoneNum = localStorage['phone']
@@ -147,6 +163,10 @@ $(function () {
   }
 
   function initAction () {
+    window.onresize = function () {
+      phoneHeight = document.documentElement.clientHeight
+      resetSize()
+    }
     $('#wateringBtn').on('click', function () {
       handleChange(1, function (newBlood) {
         resetPage()
@@ -173,19 +193,34 @@ $(function () {
       $('.handle-box').hide()
       $('#scratchingBtn').show()
       $('#wateringBtn').show()
-      utils.tips('我们重新种一颗小树吧')
-    })
+      $('.page-wrap').css("overflowY","scroll");
+    })    
     $('.certificate').on('click', function () {
       if ($('.cert-item').length < 1) {
         utils.tips('还未种植小树哦')
         return false
       }
       $('.plant-certs-wrap').show()
-      $('.page-wrap').css("overflow","hidden");
+      $('.page-wrap').css("overflowY","hidden");
     })
     $('.plant-certs-wrap').on('click', '.close-icon', function () {
       $('.plant-certs-wrap').hide()
-      $('.page-wrap').css("overflow","");
+      $('.page-wrap').css("overflowY","scroll");
+    })
+    $('.plant-wrap').on('click', '.cover', function () {
+      $('.plant-wrap').hide()
+      $('.handle-box').hide()
+      $('#scratchingBtn').show()
+      $('#wateringBtn').show()
+      $('.page-wrap').css("overflowY","scroll");
+    })
+    $('.ques-wrap').on('click', function () {
+      $('.desc-wrap').show()
+      $('.page-wrap').css("overflowY","hidden");
+    })
+    $('.desc-wrap').on('click', '.cover', function () {
+      $('.desc-wrap').hide()
+      $('.page-wrap').css("overflowY","scroll");
     })
     $('.get-more').on('click', '.close-icon', function () {
       getRankList()
@@ -236,10 +271,11 @@ $(function () {
         if (content instanceof Array && content.length>0) {
           var html = ''
           swiperLen = content.length
+          var heightStyle = phoneHeight >= 672?'457px':'100%'
           $.each(content, function (index, item) {
             var acitveClass = index == 0? 'swiper-item-active' : ''
-            html += '<div class="cert-item ' + acitveClass + '" style="width:' + 1/content.length*100 + '%"><div class="cert-item-box"><div class="cert-box animated zoomIn"><img src="images/cert-logo.png" alt="" class="cert-icon"><span></span></div>'
-            html += '<p class="cert-time">- ' + item.getDate + '获得 -</p><div class="cert-flex-box"><p class="cert-detail">' + item.certificate + '</p><div class="cert-no">NO.' + item.treeCode + '</div><a href="'+item.skipUrl+'" class="submit-btn"><label>查看</label></a></div></div></div>'
+            html += '<div class="cert-item ' + acitveClass + '" style="width:' + 1/content.length*100 + '%;height:' + heightStyle + '"><div class="cert-item-box"><div class="cert-box animated zoomIn"><img src="images/cert-logo.png" alt="" class="cert-icon"><span></span></div>'
+            html += '<p class="cert-time">- ' + item.getDate + '获得 -</p><div class="cert-flex-box"><p class="cert-detail">' + item.certificate + '</p><div class="cert-no">' + item.treeCode + '</div><a href="'+item.skipUrl+'" class="submit-btn"><label>查看</label></a></div></div></div>'
           })
           $('#certsBox').css({
             'width': content.length*100+'%'
@@ -318,6 +354,10 @@ $(function () {
     }
     ajaxRequest('/Api/game/seedTree', params, function (data) {
       if (data.code === 200) {
+        $('.plant-wrap .cert-time').text('- ' + data.data.certificate.getDate + ' -获得')
+        $('.plant-wrap .cert-detail').text(data.data.certificate.certificate)
+        $('.plant-wrap .cert-no').text(data.data.certificate.treeCode)
+        $('.plant-wrap .submit-btn').attr('href', data.data.certificate.skipUrl)
         cb()
       }
     }, true)
@@ -339,5 +379,28 @@ $(function () {
     $('.cert-item').eq(swiperIndex).addClass('swiper-item-active')
     var leftW = '-'+swiperIndex*100+'%'
     swiperContainer.animate({left:leftW},400)
+  }
+
+  function resetSize () {
+    var heightStyle = phoneHeight >= 652?'457px':'100%'
+    $('.cert-item').css({
+      height: heightStyle
+    })
+    var heightStyle2 = phoneHeight >= 652?'457px':'60%'
+    $('.plant-cert').css('height', heightStyle2)
+    if (phoneHeight > 720) {
+      $('.cert-window').css({
+        padding: '40% 0'
+      })
+      $('.cert-item-box').css({
+        paddingTop: '65%'
+      })
+      $('.plant-cert').css({
+        paddingTop: '65%'
+      })
+      $('.plant-certs-wrap .close-icon').css({
+        bottom: '10%'
+      })
+    }
   }
 })
